@@ -1,0 +1,49 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Create Tutor</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+
+</head>
+<body>
+{%  include 'navbar.html' %}
+  <div class="container-fluid">
+  {% block content %}
+
+  {% endblock %}
+    <marquee style = "color:red;">Post will be displayed only for 30 days</marquee>
+  </div>
+<div class="row">
+	<div class="col-md-6">
+		<div class="card card-body">
+
+			<form action="" method="POST">
+				{% csrf_token %}
+				
+        {% for field in form %}
+        <div class="form-group">
+            <label class="col-sm-4 control-label" for="{{ field.name }}">{{ field.label }} : </label>
+
+            <div class="col-sm-8">
+                {{ field }}
+            </div>
+        </div>
+  
+        {% endfor %}
+		<button class="btn btn-primary" type="submit" onclick='javascript:openDialog()'>Submit</button>
+			</form>
+	</div>
+</div>
+<div class ="err">
+<script type="text/javascript">
+  function openDialog(){
+   window.alert("Posted Successfully");
+}
+</script>
+
+</body>
+</html>

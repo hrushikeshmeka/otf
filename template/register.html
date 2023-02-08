@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+	
+</head>
+<body>
+  <div class = "a1">
+    <h2 style="color:black;font-family:arial;text-decoration:underline;">Sign Up</h2>
+   <form action = "register" method = "post">
+   	{% csrf_token %}
+   	<input type="text" name ="user_name" placeholder="User Name"  required><br>
+   	<input type="email" name ="email" placeholder="email"  required><br>
+    <select name="role" id="role" class = 'sa' required>
+      <option value="">Select role</option>
+    <option value="tutor">Tutor</option>
+    <option value="saab">Student/Parent</option>
+  </select>
+    <input type="password" name ="password1" placeholder="Password"  required><br>
+    <input type="password" name ="password2" placeholder="Confirm password"  required><br>
+    <input type = "submit">
+</form>
+<a class = "hi" href="{% url 'login' %}" style = "color:white;font-size:20px;color:blue; position:center;font-weight: normal;">Already Had an Account?</a>
+</div>
+<div class ="err">
+{% if messages %}
+<ul>
+   {% for message in messages %}
+     {{ message }}
+   {% endfor %}
+</ul>
+{% endif %}
+<style type="text/css">
+  body
+{
+background-color:#33ccff;
+ font-family:Arial Rounded MT Bold;
+ font-size:15px;
+ font-weight: bold;
+}
+input[type=text], input[type=password],input[type=email]{
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box; 
+  margin-left:10%;
+}
+.sa
+{
+   width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box; 
+  margin-left:10%;
+}
+
+.a1{
+  background-color:white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  position: absolute;
+  z-index: 1;
+  height:420px;
+  width:350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  padding: 10px;
+ }
+input[type=submit]{
+  border: none;
+  color:white;
+  padding: 10px 20px;
+  font-size: 15px;
+  width: 75%;
+background: #33ccff;
+color: white;
+position:absolute; 
+margin-left:10%; 
+
+}
+.hi
+{
+  position:absolute; 
+  margin-left: 18%;
+  top:92%;
+}
+.err
+{
+  position:absolute;
+  margin-left: 43%;
+  top:83%;
+  color:red;
+}
+</style>
+
+</body>
+</html>

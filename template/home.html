@@ -1,0 +1,191 @@
+  
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TFINDER</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+
+</head>
+<body>
+  {%  include 'navbar.html' %}
+  <div class="container-fluid">
+  {% block content %}
+
+  {% endblock %}
+
+  {% if r == 1 %}
+  <div class = "a">
+    
+    {% if dest == 1 %}
+    <h1 style="margin-left:27%;">Update Details</h1>
+    <hr class="rounded">
+     <button class = "b1"  onclick="location.href = '{% url 'updatedata' %}'">Update</button>
+    {% else %}
+    <h1 style="margin-left:18%;">Register As Instructor</h1>
+    <hr class="rounded">
+    <button class = "b1" onclick="location.href = 'tregister'">Register</button>
+    {% endif %}
+  </div>
+   {% else %}
+   <div class = "a">
+    <h1 style="margin-left:26%;">Post Requirement</h1>
+    <hr class="rounded">
+     <button class = "b1"  onclick="location.href = 'post'">Post</button>
+  </div>
+{% endif %}
+  <div class = "c">
+  	<h1 style="margin-left:27%;">Search  Instructor</h1>
+  	<hr class="rounded">
+  	<button class = "b1"  onclick="location.href = 'locator'">Search</button>
+  </div>
+</div>
+</div>
+<div class = "d">
+    <h1 style="margin-left:43%;">Post</h1>
+    <hr class="rounded">
+    <button class = "b1"   onclick="location.href = '{% url 'postv' %}'">Open</button>
+  </div>
+</div>
+</div>
+<div class = "notice">
+  <h1 style="margin-left:42%;">iKnowledge</h1>
+    <hr class="rounded">
+  <div class="card card-body" style="height:170px;width:90%;margin-left:5%;">
+    <table class="table">
+  <tbody>
+    <tr>
+      <td> <a href = "https://ncert.nic.in/textbook.php" target="_blank">CBSE TextBooks</a></td>
+      <td><a href = "https://www.studiestoday.com/icse-board-books" target="_blank">ICSE TextBooks</a></td>
+       <td><a href = "https://apscert.gov.in/ebookapp/ebook_page.jsp" target="_blank">AP Board TextBooks</a></td>    
+    </tr>
+     <tr>
+      <td><a href = "https://www.open.edu/openlearn/free-ebooks  " target="_blank">Free e_books</a></td>
+      <td><a href = "https://www.engineeringbookspdf.com/" target="_blank">Engineering Ref Books</a></td>
+      <td><a href = "https://www.amazon.in/Kindle-Store-Amazon-E-book/s?rh=n%3A1571277031%2Cp_73%3AAmazon+E-book " target="_blank">Amazon Kindle</a></td> 
+    </tr>
+    <tr>
+      <td><a href = " https://ndl.iitkgp.ac.in/" target="_blank">National E-Library</a></td>
+      <td><a href = "https://library.iitbbs.ac.in/open-access-e-resources.php" target="_blank">Central Library</a></td>
+      <td><a href = "https://indianculture.gov.in/ebooks" target="_blank">Indian Culture E Books</a></td> 
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+<div class = "detail">
+  <h1 style="margin-left:36%;">Profile</h1>
+    <hr class="rounded">
+    <div style="padding-left:25px;">
+  <h1>Username: {{user.username}}</h1><br>
+  <h1>Email Id: {{user.email}}</h1><br>
+</div>
+</div>
+<div class = "foot">
+  <hr>
+  <h6>Hrushikesh</h6>
+</div>
+ </body>
+<style type="text/css">
+.foot
+{
+	margin-top: 37%;
+}
+h1
+{
+
+	font-size: 150%;
+	color:black;
+	
+}
+hr.rounded {
+  border-top: 2px solid silver;
+  box-shadow: 0 8px 6px -6px black;
+  width: 85%;
+
+}
+.detail
+{
+  background-color:white;
+  position: absolute;
+  height:270px;
+  width:28%;
+  top: 67%;
+  left:17%;
+  transform: translate(-50%, -50%);
+  padding-top: 10px;
+  border-radius: 5px;
+}
+.notice
+{
+
+background-color:white;
+  position: absolute;
+  height:270px;
+  width:61%;
+  top: 67%;
+  left:66%;
+  transform: translate(-50%, -50%);
+  padding-top: 10px;
+  border-radius: 5px;
+}
+.a
+{
+  background-color:white;
+  position: absolute;
+  height:150px;
+  width:28%;
+  top: 27%;
+  left: 17%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  padding-top: 10px;
+}
+.d
+{
+  background-color:white;
+  position: absolute;
+  height:150px;
+  width:28%;
+  top: 27%;
+  left: 49.5%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+.c
+{
+  background-color:white;
+  position: absolute;
+  height:150px;
+  width:28%;
+  top:27%;
+  left:82%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  padding-top: 10px;
+}
+
+button.b1
+{
+	font-family: Arial, Helvetica, sans-serif;
+	align-content: center;
+	background-color:blue;
+	color: white;
+  border:none;
+	height:25px;
+	width: 80%;
+	border-radius: 3px;
+	margin-left: 10%;
+	margin-top: 4%;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</html>

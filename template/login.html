@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+	<div class ="a">
+	<h2 style="color:black;font-family:arial;
+  margin-left: 39%;">Login</h2>
+	<form action = "login" method ="post">
+	{% csrf_token %}
+  
+
+  <div class="container">
+    <input type="text" placeholder="Enter Username" name ="user_name" required>
+
+    <input type="password" placeholder="Enter Password"  name ="password" required>
+  </div>
+   <button type="submit">Login</button>
+</form>
+<a class = "hi" href="{% url 'register' %}" style = "color:white;font-size:20px;color:blue; position:center;">Don't Have an Account?</a>
+</div>
+<div class ="err">
+{% if messages %}
+<ul>
+   {% for message in messages %}
+     {{ message }}
+   {% endfor %}
+</ul>
+{% endif %}
+</div>
+<style type="text/css">
+body
+{
+background-color:#33ccff;
+}
+.a
+{
+  background-color:white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  position: absolute;
+  z-index: 1;
+  height:300px;
+  width:350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  
+}
+
+input[type=text], input[type=password] {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box; 
+  margin-left:10%;
+}
+
+button {
+   border: none;
+  color:white;
+  padding: 10px 20px;
+  font-size: 15px;
+  width: 80%;
+background: #33ccff;
+color: white;
+position:absolute; 
+margin-left:10%;  
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.hi
+{
+  position:absolute; 
+  margin-left: 20%;
+  top:85%;
+}
+.err
+{
+  position:absolute;
+  margin-left: 39%;
+  top:76%;
+  color:red;
+}
+</style>
+</body>
+</html>
